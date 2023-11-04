@@ -1,0 +1,64 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set from='me@example.com'
+set realname='John Doe'
+set use_from=yes
+
+set imap_user = 'me@example.com'
+set imap_pass = 'secret'
+set imap_keepalive = 9000
+set spoolfile = '+INBOX'
+mailboxes +Inbox +Drafts +Sent +Trash +Spam  
+
+set header_cache = '~/.mutt/cache/headers'
+set message_cachedir = '~/.mutt/cache/bodies'
+set certificate_file = '~/.mutt/certificates'
+
+
+# ================  SMTP  ====================
+set smtp_pass = imap_pass
+set smtp_url = 'smtp://user@example.com:port/'
+
+set move = no
+
+set timeout = 10
+set delete
+set move = no #
+set editor = 'emacsclient'
+set sort_aux = reverse-last-date-received
+set sort = 'threads'
+auto_view text/html
+set mailcap_path = ~/.mutt/mailcap
+
+set alias_file= ~/.mutt/aliases
+set sort_alias= alias
+set reverse_alias=yes
+
+source $alias_file
+set sidebar_format = '%B%* %n%o %S'
+set sidebar_short_path
+set sidebar_delim_chars = '/'
+set sidebar_folder_indent
+set sidebar_indent_string = '├── 
+set sidebar_visible = yes
+set sidebar_width   = 20
+
+# Pager ------------------------------------------
+set pager = 'emacsclient'
+set pager_index_lines = 10
+set pager_context = 8 # no. of lines of context to give when scrolling
+set menu_scroll
+set smart_wrap
+
+
+
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
+bind index,pager \Cb sidebar-toggle-visible
+
+source dracula.muttrc 
+push <first-entry>
