@@ -279,7 +279,7 @@ alias drit='docker run -it'
 alias deit='docker exec -it'
 alias dlog='docker logs'
 alias drm='docker rm'
-alias dvls='docker volume ls $*'
+alias dvls='docker inspect -f '\''{{ .Mounts }}'\'' $1'
 alias dip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 
 alias dcb='docker-compose build'
